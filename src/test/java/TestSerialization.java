@@ -30,7 +30,7 @@ public class TestSerialization {
         users.add(new User("Jack"));
         users.add(new User("Bill"));
 
-        Assert.assertThat(gson.toJson(users), is("[{\"name\":\"Jack\"}, {\"name\":\"Bill\"}]"));
+        Assert.assertThat(gson.toJson(users), is("[{\"name\":\"Jack\"},{\"name\":\"Bill\"}]"));
     }
 
     @Test
@@ -38,6 +38,6 @@ public class TestSerialization {
         SuperUser superUser = new SuperUser("Jack");
         superUser.addChild(new User("Bill"));
 
-        Assert.assertThat(gson.toJson(superUser), is("{\"name\":\"Jack\", \"children\": [{\"name\":\"Bill\"}\"]}"));
+        Assert.assertThat(gson.toJson(superUser), is("{\"children\":[{\"name\":\"Bill\"}],\"name\":\"Jack\"}"));
     }
 }
