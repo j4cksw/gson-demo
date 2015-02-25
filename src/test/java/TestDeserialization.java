@@ -1,19 +1,13 @@
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.nitorcreations.Matchers;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
 
 public class TestDeserialization {
 

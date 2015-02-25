@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by JackSW on 2/23/15 AD.
- */
 public class SuperUser extends User {
 
     private List<User> children = new ArrayList<User>();
