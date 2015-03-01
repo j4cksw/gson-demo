@@ -10,18 +10,21 @@ import static org.hamcrest.CoreMatchers.*;
 public class TestCustomSerializer {
     @Test
     public void testCustomerSerializerForDate(){
-        Assert.assertThat(convertToJsonFromSampleObject(), is("{\"timeStamp\":\"2015-02-26 00:00:00\",\"name\":\"Jack\"}"));
+        Assert.assertThat(convertSampleObjectToJSON(), is("{\"timeStamp\":\"2015-02-26 00:00:00\",\"name\":\"Jack\"}"));
     }
 
-    private String convertToJsonFromSampleObject(){
-        Gson gson = buildGsonWithCustomSerializer();
-        return gson.toJson(new UserRecord("Jack", getSampleDate()));
+    private String convertSampleObjectToJSON(){
+        return buildGsonWithCustomSerializer().toJson(createSampleUserRecord());
     }
 
     private Gson buildGsonWithCustomSerializer() {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Date.class, new ShortDateFormatAdapter());
         return builder.create();
+    }
+
+    private UserRecord createSampleUserRecord(){
+        return new UserRecord("Jack", getSampleDate());
     }
 
     private Date getSampleDate() {
